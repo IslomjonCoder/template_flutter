@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'screens/home/home_screen.dart';
+import 'package:untitled20/screens/onboarding.dart';
+import 'package:untitled20/screens/splash_first.dart';
 
 void main() {
   runApp(App());
@@ -11,9 +11,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: SplashLogo(),
     );
   }
 }
