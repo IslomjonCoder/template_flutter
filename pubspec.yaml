@@ -36,8 +36,8 @@ flutter:
     - assets/svg/
 
 
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/font/Poppins/Poppin_Regular.ttf
-          style:
+#  fonts:
+#    - family: Poppins
+#      fonts:
+#        - asset: assets/font/Poppins/Poppin_Regular.ttf
+#          style:
