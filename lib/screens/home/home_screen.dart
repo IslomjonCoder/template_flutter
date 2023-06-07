@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled20/widget/tile.dart';
+
+import '../../repository/cars.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,7 +12,11 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Default AppBar Text'),
       ),
-      body: Column(),
+      body: ListView(
+        children: [
+          for (var i = 0; i < Cars.cars.length; i++) MyCard(model: Cars.cars[i])
+        ],
+      ),
     );
   }
 }
