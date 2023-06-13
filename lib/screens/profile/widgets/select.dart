@@ -84,7 +84,7 @@ class _GenderState extends State<Gender> {
   }
 
   List<Widget> _buildNavigationItems() {
-    return List.generate(2, (index) {
+    return List.generate(names.length, (index) {
       return GestureDetector(
           onTap: () {
             setState(() {
