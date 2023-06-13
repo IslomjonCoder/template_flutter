@@ -15,9 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
 
-  List<Widget> _pages = [
+  final List<Widget> _pages = [
     Profile(),
     Profile(),
     Profile(),
@@ -38,207 +38,216 @@ class _HomeScreenState extends State<HomeScreen> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: MyColors.shades0,
-      body: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(MyIcons.ring),
-                SizedBox(width: width * (8 / 375)),
-                const Text(
-                  "Study",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-                ),
-              ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(MyIcons.ring),
+                  SizedBox(width: width * (8 / 375)),
+                  const Text(
+                    "Study",
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Divider(),
-          Row(
-            children: [
-              Container(
-                  padding: EdgeInsets.all(4),
-                  color: Colors.white,
-                  height: 58,
-                  width: 58,
-                  child: Image.asset(MyIcons.boy)),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            Expanded(
+              child: ListView(
                 children: [
-                  Text(
-                    "Welcome",
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: MyColors.neutral500),
+                  Divider(),
+                  Row(
+                    children: [
+                      Container(
+                          padding: EdgeInsets.all(4),
+                          color: Colors.white,
+                          height: 58,
+                          width: 58,
+                          child: Image.asset(MyIcons.boy)),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Welcome",
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: MyColors.neutral500),
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Marvin Mckinney",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                color: MyColors.shades100),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      GestureDetector(
+                          onTap: () {}, child: SvgPicture.asset(MyIcons.exit)),
+                    ],
                   ),
-                  SizedBox(
-                    height: 3,
+                  Divider(),
+                  Column(
+                    children: [
+                      Settings(
+                        title: "Profile",
+                        icon: MyIcons.user,
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Profile();
+                          }));
+                        },
+                      ),
+                      Settings(
+                        title: "Account",
+                        icon: MyIcons.account,
+                        onTap: () {},
+                      ),
+                      Settings(
+                        title: "Settings",
+                        icon: MyIcons.settings,
+                        onTap: () {},
+                      ),
+                      Settings(
+                        title: "About",
+                        icon: MyIcons.about,
+                        onTap: () {},
+                      ),
+                    ],
                   ),
-                  Text(
-                    "Marvin Mckinney",
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
-                        color: MyColors.shades100),
+                  SizedBox(height: height * (40 / 812)),
+                  Container(
+                    height: 85,
+                    width: 327,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: MyColors.secondary500),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 14,
+                          left: 25,
+                          child: SvgPicture.asset(
+                            MyIcons.music,
+                          ),
+                        ),
+                        Positioned(
+                            top: height * (20 / 812),
+                            left: width * (22 / 375),
+                            child: const Ring(height: 7, width: 7)),
+                        Positioned(
+                            top: height * (13 / 812),
+                            left: width * (92 / 375),
+                            child: const Ring(height: 4, width: 4)),
+                        Positioned(
+                            top: height * (69 / 812),
+                            left: width * (26 / 375),
+                            child: const Ring(height: 3, width: 3)),
+                        Positioned(
+                            top: height * (73 / 812),
+                            left: width * (78 / 375),
+                            child: const Ring(height: 3, width: 3)),
+                        Positioned(
+                            top: height * (4 / 812),
+                            left: width * (253 / 375),
+                            child: SvgPicture.asset(MyIcons.box1)),
+                        Positioned(
+                            left: width * (234 / 375),
+                            child: SvgPicture.asset(MyIcons.box2)),
+                        Positioned(
+                            left: width * (214 / 375),
+                            child: SvgPicture.asset(MyIcons.box3)),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: height * (31 / 812),
+                              left: width * (106 / 375)),
+                          child: const Text(
+                            "How can we help you?",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17,
+                                color: MyColors.shades0),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: height * (63 / 812)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Privacy Policy',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF64748B),
+                                fontSize: 13,
+                                fontFamily: 'Poppins'),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          SvgPicture.asset(MyIcons.back)
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Terms',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF64748B),
+                                fontSize: 13,
+                                fontFamily: 'Poppins'),
+                          ),
+                          SizedBox(
+                            width: width * 8 / 375,
+                          ),
+                          SvgPicture.asset(MyIcons.back)
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'English',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF64748B),
+                                fontSize: 13,
+                                fontFamily: 'Poppins'),
+                          ),
+                          SizedBox(
+                            width: width * 8 / 375,
+                          ),
+                          SvgPicture.asset(MyIcons.bBack)
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
-              Spacer(),
-              GestureDetector(
-                  onTap: () {}, child: SvgPicture.asset(MyIcons.exit)),
-            ],
-          ),
-          Divider(),
-          Column(
-            children: [
-              Settings(
-                title: "Profile",
-                icon: MyIcons.user,
-                onTap: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return Profile();
-                  }));
-                },
-              ),
-              Settings(
-                title: "Account",
-                icon: MyIcons.account,
-                onTap: () {},
-              ),
-              Settings(
-                title: "Settings",
-                icon: MyIcons.settings,
-                onTap: () {},
-              ),
-              Settings(
-                title: "About",
-                icon: MyIcons.about,
-                onTap: () {},
-              ),
-            ],
-          ),
-          SizedBox(height: height * (40 / 812)),
-          Container(
-            height: 85,
-            width: 327,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: MyColors.secondary500),
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 14,
-                  left: 25,
-                  child: SvgPicture.asset(
-                    MyIcons.music,
-                  ),
-                ),
-                Positioned(
-                    top: height * (20 / 812),
-                    left: width * (22 / 375),
-                    child: const Ring(height: 7, width: 7)),
-                Positioned(
-                    top: height * (13 / 812),
-                    left: width * (92 / 375),
-                    child: const Ring(height: 4, width: 4)),
-                Positioned(
-                    top: height * (69 / 812),
-                    left: width * (26 / 375),
-                    child: const Ring(height: 3, width: 3)),
-                Positioned(
-                    top: height * (73 / 812),
-                    left: width * (78 / 375),
-                    child: const Ring(height: 3, width: 3)),
-                Positioned(
-                    top: height * (4 / 812),
-                    left: width * (253 / 375),
-                    child: SvgPicture.asset(MyIcons.box1)),
-                Positioned(
-                    left: width * (234 / 375),
-                    child: SvgPicture.asset(MyIcons.box2)),
-                Positioned(
-                    left: width * (214 / 375),
-                    child: SvgPicture.asset(MyIcons.box3)),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: height * (31 / 812), left: width * (106 / 375)),
-                  child: const Text(
-                    "How can we help you?",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 17,
-                        color: MyColors.shades0),
-                  ),
-                )
-              ],
             ),
-          ),
-          SizedBox(height: height * (63 / 812)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Privacy Policy',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF64748B),
-                        fontSize: 13,
-                        fontFamily: 'Poppins'),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  SvgPicture.asset(MyIcons.back)
-                ],
+            SizedBox(
+              height: 56.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: _buildNavigationItems(),
               ),
-              Row(
-                children: [
-                  Text(
-                    'Terms',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF64748B),
-                        fontSize: 13,
-                        fontFamily: 'Poppins'),
-                  ),
-                  SizedBox(
-                    width: width * 8 / 375,
-                  ),
-                  SvgPicture.asset(MyIcons.back)
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    'English',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xFF64748B),
-                        fontSize: 13,
-                        fontFamily: 'Poppins'),
-                  ),
-                  SizedBox(
-                    width: width * 8 / 375,
-                  ),
-                  SvgPicture.asset(MyIcons.bBack)
-                ],
-              ),
-            ],
-          ),
-          Spacer(),
-          Container(
-            height: 56.0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _buildNavigationItems(),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
