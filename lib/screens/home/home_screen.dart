@@ -1,8 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:untitled20/screens/about/about.dart';
+import 'package:untitled20/screens/account/account.dart';
 import 'package:untitled20/screens/home/widgets/box.dart';
 import 'package:untitled20/screens/home/widgets/settings.dart';
 import 'package:untitled20/screens/profile/profile.dart';
+import 'package:untitled20/screens/settings/setting.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/icons.dart';
@@ -68,11 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 58,
                           width: 58,
                           child: Image.asset(MyIcons.boy)),
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Welcome",
+                            tr("Welcome"),
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w400,
@@ -99,29 +103,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: [
                       Settings(
-                        title: "Profile",
+                        title: tr("Profile"),
                         icon: MyIcons.user,
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return Profile();
-                          }));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Profile()));
                         },
                       ),
                       Settings(
-                        title: "Account",
+                        title: tr("Account"),
                         icon: MyIcons.account,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Account(),
+                              ));
+                        },
                       ),
                       Settings(
-                        title: "Settings",
+                        title: tr("Settings"),
                         icon: MyIcons.settings,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SettingPage(),
+                              ));
+                        },
                       ),
                       Settings(
-                        title: "About",
+                        title: tr("About"),
                         icon: MyIcons.about,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AboutPage()));
+                        },
                       ),
                     ],
                   ),
@@ -171,8 +192,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: EdgeInsets.only(
                               top: height * (31 / 812),
                               left: width * (106 / 375)),
-                          child: const Text(
-                            "How can we help you?",
+                          child: Text(
+                            tr("How can we help you?"),
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 17,
@@ -189,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         children: [
                           Text(
-                            'Privacy Policy',
+                            tr('Privacy Policy'),
                             style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 color: Color(0xFF64748B),
@@ -205,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         children: [
                           Text(
-                            'Terms',
+                            tr('Terms'),
                             style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 color: Color(0xFF64748B),
@@ -221,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         children: [
                           Text(
-                            'English',
+                            tr('English'),
                             style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 color: Color(0xFF64748B),

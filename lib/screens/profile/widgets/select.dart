@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled20/utils/icons.dart';
@@ -15,7 +16,7 @@ class Gender extends StatefulWidget {
 class _GenderState extends State<Gender> {
   double screenwidth = 0;
   int _selected = 0;
-  List names = ['Male', 'Female'];
+  List names = [tr('Male'), tr('Female')];
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -27,7 +28,7 @@ class _GenderState extends State<Gender> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'label',
+            widget.label,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w400,
@@ -91,14 +92,6 @@ class _GenderState extends State<Gender> {
               _selected = index;
             });
           },
-          // child: Container(
-          //   height: 40,
-          //   width: 40,
-          //   padding: EdgeInsets.all(8.0),
-          //   child: _selectedIndex == index
-          //       ? _selectedItemWidget(index)
-          //       : _unselectedItemWidget(index),
-          // ),
           child: _selected == index
               ? selected(select: true, name: names[index])
               : selected(select: false, name: names[index]));

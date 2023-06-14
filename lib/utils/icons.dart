@@ -1,6 +1,15 @@
 class MyIcons {
   // png
   static const boy = "assets/images/boy.png";
+  static const flag1 = "assets/flags/img.png";
+  static const flag2 = "assets/flags/img_1.png";
+  static const flag3 = "assets/flags/img_2.png";
+  static const flag4 = "assets/flags/img_3.png";
+  static const flag5 = "assets/flags/img_4.png";
+  static const flag6 = "assets/flags/img_5.png";
+  static const flag7 = "assets/flags/img_6.png";
+  static const flag8 = "assets/flags/img_7.png";
+  static const flag9 = "assets/flags/img_8.png";
 
   // svg
   static const user = "assets/svg/user.svg";
@@ -22,4 +31,5 @@ class MyIcons {
   static const profile = "assets/svg/profile.svg";
   static const bBack = "assets/svg/bottom_back.svg";
   static const done = "assets/svg/done.svg";
+  static const search = "assets/svg/search.svg";
 }

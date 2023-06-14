@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:untitled20/screens/profile/widgets/global_button.dart';
 import 'package:untitled20/screens/profile/widgets/input.dart';
 import 'package:untitled20/screens/profile/widgets/select.dart';
 
@@ -17,20 +19,22 @@ class Profile extends StatelessWidget {
         backgroundColor: MyColors.shades0,
         elevation: 0,
         centerTitle: true,
+        leadingWidth: 45,
         leading: InkWell(
           onTap: () {
             Navigator.of(context).maybePop();
           },
           child: Container(
-            // margin: EdgeInsets.only(left: 24),
-            padding: EdgeInsets.all(12),
+            height: 40,
+            width: 40,
+            margin: EdgeInsets.only(left: 12),
             child: SvgPicture.asset(
               MyIcons.arrowBack,
             ),
           ),
         ),
         title: Text(
-          'Profil',
+          tr('Profile'),
           style: TextStyle(
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w500,
@@ -67,57 +71,37 @@ class Profile extends StatelessWidget {
                 ),
               ),
               Entry(
-                label: 'Name',
-                hint: 'Your name',
+                label: tr('Name'),
+                hint: tr('User name'),
               ),
               Entry(
-                label: 'Email',
+                label: tr('Email'),
                 hint: 'study@email.com',
                 keyboardType: TextInputType.emailAddress,
               ),
               Entry(
-                label: 'Date of birth',
+                label: tr('Date of birth'),
                 hint: '11/08/1997',
                 keyboardType: TextInputType.datetime,
               ),
               Entry(
-                label: 'Phone Number',
+                label: tr('Phone Number'),
                 hint: '0334 xxxx xxxx',
                 keyboardType: TextInputType.phone,
               ),
               Entry(
-                label: 'Student ID',
+                label: tr('Student ID'),
                 isEnabled: false,
                 hint: '#87654',
               ),
-              Gender(label: 'Gender'),
+              Gender(label: tr('Gender')),
               Entry(
-                label: 'Address',
-                hint: '1106 Sunrise Road Las Vegas, NV 89102',
+                label: tr('Address'),
+                hint: tr('1106 Sunrise Road Las Vegas, NV 89102'),
                 isLarge: true,
               ),
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: MyColors.secondary500,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'Update Profil',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 17.0,
-                        // letterSpacing: 1,
-                        color: MyColors.shades0),
-                  ),
-                ),
+              GlobalButton(
+                label: tr("Update Profile"),
               )
             ],
           ),
